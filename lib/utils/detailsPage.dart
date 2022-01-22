@@ -18,16 +18,19 @@ class Details extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //for Image
             Container(
                 padding: EdgeInsets.all(10.0),
                 height: 300.0,
                 width: 400.0,
                 child: Image.network(url,fit: BoxFit.cover,)
             ),
+            //for type text
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Text(type,style: TextStyle(fontSize: 45.0,fontWeight: FontWeight.bold),),
             ),
+            //for price text
             Padding(
               padding: const EdgeInsets.only(left: 10.0),
               child: Text("$price/month",style: TextStyle(fontSize: 20.0,),),

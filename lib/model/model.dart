@@ -1,3 +1,5 @@
+
+//model class for convert json to custom class data
 class MarsModel {
   int? price;
   String? id;

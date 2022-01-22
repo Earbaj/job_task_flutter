@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job_task/model/model.dart';
+import 'package:job_task/utils/detailsPage.dart';
 
 class PropartyList extends StatelessWidget {
   final List<MarsModel> list;
@@ -14,11 +15,11 @@ class PropartyList extends StatelessWidget {
         itemBuilder: (context, index){
           return InkWell(
             onTap: (){
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) =>
-              //       Details(list[index].imgSrc!,list[index].type!,list[index].price!)),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>
+                    Details(list[index].imgSrc!,list[index].type!,list[index].price!)),
+              );
             },
             child: Container(
               child: Padding(

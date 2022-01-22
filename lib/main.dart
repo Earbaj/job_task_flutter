@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -49,19 +50,25 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.more_vert))
+        ],
         title: Text(widget.title),
       ),
       body: FutureBuilder<List<MarsModel>>(
         future: fetchjson(http.Client()),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return const Center(
-              child: Text('error occurred!'),
+            //if it something happens or no internet show this
+            return Center(
+              child: Text('Error or No Internet'),
             );
           } else if (snapshot.hasData) {
+            //if it has data than it pass the data to propartylist class
             return PropartyList(snapshot.data!);
           } else {
-            return const Center(
+            //load the loading indiator while parsing data
+            return Center(
               child: CircularProgressIndicator(),
             );
           }
